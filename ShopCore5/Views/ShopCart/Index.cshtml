@@ -1,0 +1,71 @@
+﻿@model ShopCart
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<div class="container py-1">
+    <div class="row text-center text-dark mb-1">
+        <div class="col-lg-7 mx-auto">
+            <h1 class="display-4">Список покупок</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <ul class="list-group shadow">
+                @{
+                    var fullCost = 0.0;
+                    foreach (var product in Model.ListShopItems)
+                    {
+                        fullCost += product.Furnitures.Cost;
+                        <li class="list-group-item pb-1 mb-1">
+                            <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                                <div class="media-body order-2 order-lg-1">
+                                    <h5 class="mt-0 font-weight-bold mb-2">@product.Furnitures.ProductName</h5>
+                                    <p class="font-italic text-muted mb-0 small">@product.Furnitures.Category.CategoryName | @product.Furnitures.Size | Вес @product.Furnitures.Weight</p>
+                                    <div class="d-flex align-items-center justify-content-between mt-1">
+                                        <h6 class="font-weight-bold my-2">Цена @product.Furnitures.Cost.ToString("C")</h6>
+                                    </div>
+                                </div>
+                                <img src="@product.Furnitures.Img" alt="Generic placeholder image" height="130" width="200" class="ml-lg-5 order-1 order-lg-2">
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+            @{
+                if (@HttpContextAccessor.HttpContext.Session.GetString("HumanId") != null)
+                {
+                    <div class="pt-1 mb-4">
+                                    <a type="button" class="btn btn-warning btn-lg btn-block" asp-controller="ShopCart" asp-action="MakeOrder" asp-route-humanId="@HttpContextAccessor.HttpContext.Session.GetString("HumanId")">Сделать заказ на сумму @fullCost.ToString("C")</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="pt-1 mb-4">
+                        <button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#modal">Сделать заказ на сумму @fullCost.ToString("C")</button>
+                    </div>
+
+                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Для оформления заказа необходимо зарегистрироваться или войти!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a type="button" class="btn btn-warning" asp-controller="Account" asp-action="Register">Зарегистрироваться</a>
+                                    <a type="button" class="btn btn-dark" asp-controller="Account" asp-action="SignIn">Войти</a>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

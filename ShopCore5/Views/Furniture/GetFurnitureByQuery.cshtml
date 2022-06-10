@@ -1,0 +1,318 @@
+﻿@model IEnumerable<Furniture>
+@{
+    ViewData["Title"] = "Поиск...";
+}
+<style>
+    a {
+        color: black
+    }
+</style>
+<div style="display: flex; flex-direction: row; justify-content: center; ">
+    <nav id="sidebar">
+        <div class="pr-5 pt-5">
+            <h5 style="font-size:40px">Категории</h5>
+            <ul class="list-unstyled components mb-5" style="font-size:30px; color:black;">
+                <li>
+                    <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Гостинная</a>
+                    <ul class="list-unstyled collapse" id="pageSubmenu1" style="">
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=1>
+                                <span class="fa fa-chevron-right mr-2"></span> Стулья
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=2>
+                                <span class="fa fa-chevron-right mr-2"></span> Декор
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=3>
+                                <span class="fa fa-chevron-right mr-2"></span> Столы
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=4>
+                                <span class="fa fa-chevron-right mr-2"></span> Кресла
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=5>
+                                <span class="fa fa-chevron-right mr-2"></span> Освещение
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Спальня</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=1>
+                                <span class="fa fa-chevron-right mr-2"></span> Стулья
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=2>
+                                <span class="fa fa-chevron-right mr-2"></span> Декор
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=3>
+                                <span class="fa fa-chevron-right mr-2"></span> Столы
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=4>
+                                <span class="fa fa-chevron-right mr-2"></span> Кресла
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=5>
+                                <span class="fa fa-chevron-right mr-2"></span> Освещение
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Кухня</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu4">
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=1>
+                                <span class="fa fa-chevron-right mr-2"></span> Стулья
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=2>
+                                <span class="fa fa-chevron-right mr-2"></span> Декор
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=3>
+                                <span class="fa fa-chevron-right mr-2"></span> Столы
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=4>
+                                <span class="fa fa-chevron-right mr-2"></span> Кресла
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=5>
+                                <span class="fa fa-chevron-right mr-2"></span> Освещение
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Прихожая</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu3">
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=1>
+                                <span class="fa fa-chevron-right mr-2"></span> Стулья
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=2>
+                                <span class="fa fa-chevron-right mr-2"></span> Декор
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=3>
+                                <span class="fa fa-chevron-right mr-2"></span> Столы
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=4>
+                                <span class="fa fa-chevron-right mr-2"></span> Кресла
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=5>
+                                <span class="fa fa-chevron-right mr-2"></span> Освещение
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Детская</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu4">
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=1>
+                                <span class="fa fa-chevron-right mr-2"></span> Стулья
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=2>
+                                <span class="fa fa-chevron-right mr-2"></span> Декор
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=3>
+                                <span class="fa fa-chevron-right mr-2"></span> Столы
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=4>
+                                <span class="fa fa-chevron-right mr-2"></span> Кресла
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=5>
+                                <span class="fa fa-chevron-right mr-2"></span> Освещение
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Офис</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu4">
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=1>
+                                <span class="fa fa-chevron-right mr-2"></span> Стулья
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=2>
+                                <span class="fa fa-chevron-right mr-2"></span> Декор
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=3>
+                                <span class="fa fa-chevron-right mr-2"></span> Столы
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=4>
+                                <span class="fa fa-chevron-right mr-2"></span> Кресла
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=5>
+                                <span class="fa fa-chevron-right mr-2"></span> Освещение
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Для дачи</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu4">
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=1>
+                                <span class="fa fa-chevron-right mr-2"></span> Стулья
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=2>
+                                <span class="fa fa-chevron-right mr-2"></span> Декор
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=3>
+                                <span class="fa fa-chevron-right mr-2"></span> Столы
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=4>
+                                <span class="fa fa-chevron-right mr-2"></span> Кресла
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=5>
+                                <span class="fa fa-chevron-right mr-2"></span> Освещение
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Для отелей</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu4">
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=1>
+                                <span class="fa fa-chevron-right mr-2"></span> Стулья
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=2>
+                                <span class="fa fa-chevron-right mr-2"></span> Декор
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=3>
+                                <span class="fa fa-chevron-right mr-2"></span> Столы
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=4>
+                                <span class="fa fa-chevron-right mr-2"></span> Кресла
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=5>
+                                <span class="fa fa-chevron-right mr-2"></span> Освещение
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Для ресторанов</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu4">
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=1>
+                                <span class="fa fa-chevron-right mr-2"></span> Стулья
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=2>
+                                <span class="fa fa-chevron-right mr-2"></span> Декор
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=3>
+                                <span class="fa fa-chevron-right mr-2"></span> Столы
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=4>
+                                <span class="fa fa-chevron-right mr-2"></span> Кресла
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Furniture" asp-action="GetFurnitureCategory" asp-route-categoryId=5>
+                                <span class="fa fa-chevron-right mr-2"></span> Освещение
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <div class="album py-5">
+        <div class="container bg-light">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="width:1080px">
+                @{
+                    foreach (var product in Model)
+                    {
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="@product.Img" alt="@product.ProductName" />
+                                <div class="card-body">
+                                    <p class="card-text">@product.ProductName <br /> @product.ShortDescription</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a class="btn btn-dark" asp-controller="Furniture" asp-action="ProductCard" asp-route-productId=@product.Id>Подробнее</a>
+                                            <a class="btn btn-warning" asp-controller="ShopCart" asp-action="AddToCart" asp-route-id=@product.Id>Добавить в корзину</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
